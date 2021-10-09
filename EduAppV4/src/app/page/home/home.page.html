@@ -1,0 +1,141 @@
+<ion-header [translucent]="true" color="black">
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      Home
+    </ion-title>
+    <app-header slot="end"></app-header>
+    <!-- <ion-buttons slot="end" menu="first">
+      <app-menu1 slot="end"></app-menu1>
+    </ion-buttons> -->
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="has-header" [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <!-- Move back one screen of the slides -->
+        <ion-col size="2">
+          <ion-button fill="clear" (click)="back()">
+            <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="8" class="ion-text-center">
+          <h2>{{ viewTitle }}</h2>
+        </ion-col>
+
+        <!-- Move forward one screen of the slides -->
+        <ion-col size="2">
+          <ion-button fill="clear" (click)="next()">
+            <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-button (click)="addNewEvent()">Add New Event</ion-button> -->
+
+      <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+        (onCurrentDateChanged)="onCurrentDateChanged($event)" (onRangeChanged)="reloadSource(startTime, endTime)"
+        (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)" [step]="calendar.step">
+
+      </calendar>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-card-list">
+  <ion-title size="large">Important Notifications</ion-title>
+  <app-notification *ngFor="let item of importantNotifications" [notificationList]="item" routerLink="/notifications">
+  </app-notification>
+</ion-card>
+</ion-content>
+<!-- <ion-card>
+    <ion-title size="large">Important Notifications</ion-title>
+    <ion-card-content>
+      <div *ngFor="let item of importantNotifications" >
+        <ion-item [routerLink]="['/notifications']" class="ion-activated">
+          <ion-label>{{item.title}}</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{item.description}}
+        </ion-card-content>
+      </div>
+    </ion-card-content>
+  </ion-card> -->
+<!-- <app-notification></app-notification>
+
+</ion-content> -->
+
+
+
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        ID
+      </ion-col>
+      <ion-col>
+        First Name
+      </ion-col>
+      <ion-col>
+        Last Name
+      </ion-col>
+      <ion-col>
+        ion-col
+      </ion-col>
+    </ion-row>
+    <div *ngFor="let item of student" >
+      <div *ngIf="!item.isedit; else elseBlock">
+        <ion-row>
+          <ion-col>
+            {{item.firstname}}
+          </ion-col>
+          <ion-col>
+            {{item.lastname}}
+            
+          </ion-col>
+          <ion-col>
+            Last Name
+          </ion-col>
+          <ion-col>
+            ion-col
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="UpdateUser(item)">update</ion-button>
+            <ion-button (click)="DeleteUser(item.id)">delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ng-template #elseBlock>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    Edit Employee
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" [(ngModel)]="item.editname" class="form-control">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="number" [(ngModel)]="item.editage" class="form-control">
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
+                <a href="#" class="btn btn-primary btn-xs" (click)="Updatarecord(item)">Update Employee</a>
+           
+            </div>
+        </div>
+    </ng-template>
+    </div>
+  </ion-grid>
+  
+</ion-content> -->

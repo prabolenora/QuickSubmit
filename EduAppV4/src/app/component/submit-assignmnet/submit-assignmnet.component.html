@@ -1,0 +1,30 @@
+<div>
+  <ion-card class="ion-card-list">
+    <ion-card-content>
+      
+      <ion-label class="item-title"><p>Before Upload the assigment rename your file like below</p></ion-label>
+      <ion-label class="item-title">file name = assignment ID_Student ID</ion-label>
+      <ion-input  type="file" (change)="showPreview($event)"></ion-input>
+      <ion-label class="item-title" *ngIf="stuIdValidator">Please Select a file</ion-label>
+      <ion-button expand="block" color="secondary" (click)="SubmitUploadFile()">Submit uploaded file</ion-button>
+    
+    </ion-card-content>
+    <ion-card-content>      
+      <ion-label class="item-title"><p>If you are using camera option to upload an image please insert the assigment ID in given the field.</p></ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-label class="item-title">Insert assigmnet ID</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input  type="text" placeholder="Assigment ID" (ionInput)="getAssignmetnId($event)"></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-button expand="block" class="btn-cam" color="secondary" style="--background:red" (click)="OpenCamera(inputValue)">Open
+          Camera and submit</ion-button>
+    </ion-card-content>
+    
+    <!-- <img src="imgUrl"  height="100" width="100" /> -->
+    <!-- <ion-input value="" [(ngModel)]="inputName"></ion-input> -->
+           
+  </ion-card>
+</div>

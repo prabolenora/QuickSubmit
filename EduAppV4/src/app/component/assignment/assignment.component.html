@@ -1,0 +1,22 @@
+<div #expandWrapper class="expand-wrapper" [class.collapsed]="!expanded">
+    
+  <ion-card  class="ion-card-list" collapse="condense">
+    <ion-card-content>
+      <ion-title size="small">{{assignmentList.title}}</ion-title>
+      <!-- <ion-label class="item-title"><p>{{assignmentList.title}}</p></ion-label> -->
+      <ion-label class="item-title">Assignment ID : {{assignmentList.imgId}}</ion-label>
+      <ion-card-content>
+        Submission Due Date is 
+        <p>{{assignmentList.description}}</p>
+       
+      </ion-card-content>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-label class="item-title"><p>Download the assigmnet using below link</p></ion-label>
+      <ion-button expand="block" color="tertiary" fill="clear" (click)="view()">Download Asssignmnet</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+

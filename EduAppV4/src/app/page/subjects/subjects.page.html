@@ -1,0 +1,95 @@
+<ion-header [translucent]="true" color="black">
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      My Subjects
+    </ion-title>
+    <app-header slot="end"></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+    <ion-card *ngIf="visiblePure">
+      <ion-item href="#" class="ion-activated" class="card" >
+        <img src="../../../assets/Images/puremath.png" height="100" width="100" />
+        <ion-card-title style="padding-left: 10%;">Pure Mathematics</ion-card-title>
+      </ion-item>
+      <ion-card>
+        <ion-row>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadLessons('pure')">Lessons</ion-button>
+          </ion-col>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadAssignments('pure')">Assigments</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-card >
+    <ion-card *ngIf="visibleApplied">
+      <ion-item href="#" class="ion-activated" class="card">
+        <img src="../../../assets/Images/appliedmath.png" height="100" width="100" />
+        <ion-card-title style="padding-left: 10%;">Applied Mathematics</ion-card-title>
+      </ion-item>
+      <ion-card>
+        <ion-row>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadLessons('applied')">Lessons</ion-button>
+          </ion-col>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadAssignments('applied')">Assigments</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-card>
+    <ion-card *ngIf="visibleChem">
+      <ion-item href="#" class="ion-activated" class="card">
+        <img src="../../../assets/Images/chem.png" height="100" width="100" />
+        <ion-card-title style="padding-left: 10%;">Chemistry</ion-card-title>
+      </ion-item>
+      <ion-card>
+        <ion-row>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadLessons('chem')">Lessons</ion-button>
+          </ion-col>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadAssignments('chem')">Assigments</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-card>
+    <ion-card *ngIf="visiblePhysics">
+      <ion-item href="#" class="ion-activated" class="card">
+        <img src="../../../assets/Images/physics.png" height="100" width="100" />
+        <ion-card-title style="padding-left: 10%;">Physics</ion-card-title>
+      </ion-item>
+      <ion-card>
+        <ion-row>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadLessons('physics')">Lessons</ion-button>
+          </ion-col>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadAssignments('physics')">Assigments</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-card>
+    <ion-card *ngIf="visibleBio">
+      <ion-item href="#" class="ion-activated" class="card">
+        <img src="../../../assets/Images/bio.png" height="100" width="100" />
+        <ion-card-title style="padding-left: 10%;">Biology</ion-card-title>
+      </ion-item>
+      <ion-card>
+        <ion-row>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadLessons('bio')">Lessons</ion-button>
+          </ion-col>
+          <ion-col style="width: 50%;">
+            <ion-button shape="round" color="medium" (click)="LoadAssignments('bio')">Assigments</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-card>
+</ion-content>

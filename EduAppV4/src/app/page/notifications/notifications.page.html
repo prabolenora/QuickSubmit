@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      Notifications
+    </ion-title>
+    <app-header slot="end" ></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="chevron-down-circle-outline"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+
+ 
+  <app-notification *ngFor="let item of notifications" [notificationList]="item" >
+  </app-notification>
+
+</ion-content>

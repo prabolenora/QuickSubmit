@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" color="black">
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      <img src="./../../../assets/Images/back.png" style="width : 15% ; height : 15%" (click)="previouspage()" >
+     Lessons
+    </ion-title>
+    <app-header slot="end"></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-card-list">
+    <ion-title size="large" style="padding-bottom: 5%;padding-top: 5%; color: blue;">{{LessonTitle}}</ion-title>
+    <div *ngFor="let item of lessonsList ;let i=index" >   
+      <!-- <ion-item> </ion-item>  -->
+      <div (click)="expandItem(item)" >
+        <ion-label style="padding-left: 5%;" class="item-title">Assignment: {{i+1}}</ion-label>
+        <ion-card-content>       
+          <div #expandWrapper class="expand-wrapper" expandHeight="100%" [class.collapsed]="!item.expanded">
+    
+            <ion-card  class="ion-card-list" collapse="condense">
+              <ion-card-content>
+                <ion-title size="small">{{item.title}}</ion-title>
+                <!-- <ion-label class="item-title"><p>{{assignmentList.title}}</p></ion-label> -->
+                <ion-label class="item-title">Assignment ID : {{item.imgId}}</ion-label>
+                <ion-card-content>
+                 Uploaded Date is 
+                  <p>{{item.UploadedDate}}</p>
+                 
+                </ion-card-content>
+              </ion-card-content>
+              <ion-card-content>
+                <ion-label class="item-title"><p>Download the assigmnet using below link</p></ion-label>
+                <ion-button expand="block" color="tertiary" fill="clear" (click)="view()">Download Lesson</ion-button>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-card-content>   
+        </div>
+   
+    </div>
+
+  </ion-card>
+
+</ion-content>

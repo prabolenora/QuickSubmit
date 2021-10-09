@@ -1,0 +1,25 @@
+<ion-header [translucent]="true" color="black">
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      Support
+    </ion-title>
+    <app-header slot="end"></app-header>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="ion-card-list">
+    <div style="padding-left: 15%; align-content: center;font-size: large;">
+    <ion-label class="item-title">
+      <p style="font-size: large;">We are happy to help you.Please contact us clicking on below button.</p>
+    </ion-label>
+  </div>
+  <div style="padding-top: 10%;padding-left: 30%;">
+    <ion-button shape="round" style="color: aquamarine;" (click)="openEmailComposer()">Contact Us</ion-button>
+  </div>
+  </ion-card>
+</ion-content>

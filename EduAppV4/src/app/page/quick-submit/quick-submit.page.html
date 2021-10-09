@@ -1,0 +1,84 @@
+<ion-header [translucent]="true" color="black">
+  
+  <ion-toolbar class="page-header">
+    <ion-buttons slot="start" menu="first">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="page-titles">
+      Quick Submit
+    </ion-title>
+    <app-header slot="end"></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card class="ion-card-list" *ngIf="visibleChem">
+    <ion-title size="large" style="padding-bottom: 5%;padding-top: 5%; color: blue;">Chemistry</ion-title>
+    <div *ngFor="let item of chemAssigmnetList ;let i=index">
+      <!-- <ion-item> </ion-item>  -->
+      <div (click)="expandChemItem(item)">
+        <ion-label style="padding-left: 5%;" class="item-title">View Assignment: {{i+1}}</ion-label>
+        <ion-card-content>
+          <app-assignment [expanded]="item.expanded" expandHeight="100%" [assignmentList]="item">
+          </app-assignment>
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+  <ion-card class="ion-card-list" *ngIf="visiblePhysics">
+    <ion-title size="large" style="padding-bottom: 5%;padding-top: 5%; color: blue;">Physics</ion-title>
+    <div *ngFor="let item of physicsAssigmnetList ;let i=index">
+      <!-- <ion-item> </ion-item>  -->
+      <div (click)="expandPhysicsItem(item)">
+        <ion-label style="padding-left: 5%;" class="item-title">View Assignment: {{i+1}}</ion-label>
+        <ion-card-content>
+          <app-assignment [expanded]="item.expanded" expandHeight="100%" [assignmentList]="item">
+          </app-assignment>
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+  <ion-card class="ion-card-list"  *ngIf="visiblePure">
+    <ion-title size="large" style="padding-bottom: 5%;padding-top: 5%; color: blue;">Pure Mathematics</ion-title>
+    <div *ngFor="let item of pureAssigmnetList ;let i=index">
+      <!-- <ion-item> </ion-item>  -->
+      <div (click)="expandPureItem(item)">
+        <ion-label style="padding-left: 5%;" class="item-title">View Assignment: {{i+1}}</ion-label>
+        <ion-card-content>
+          <app-assignment [expanded]="item.expanded" expandHeight="100%" [assignmentList]="item">
+          </app-assignment>
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+  <ion-card class="ion-card-list" *ngIf="visibleApplied">
+    <ion-title size="large" style="padding-bottom: 5%;padding-top: 5%; color: blue;">Applied Mathematics</ion-title>
+    <div *ngFor="let item of appliedAssigmnetList ;let i=index">
+      <!-- <ion-item> </ion-item>  -->
+      <div (click)="expandAppliedItem(item)">
+        <ion-label style="padding-left: 5%;" class="item-title">View Assignment: {{i+1}}</ion-label>
+        <ion-card-content>
+          <app-assignment [expanded]="item.expanded" expandHeight="100%" [assignmentList]="item">
+          </app-assignment>
+        </ion-card-content>
+      </div>
+    </div>
+  </ion-card>
+  <ion-card class="ion-card-list">
+    <ion-item>
+      <ion-label>Please select the subject </ion-label>
+      <ion-select interface="popover" [(ngModel)]="subject"  (ionChange)="optionsFn();">
+        <ion-select-option value="chem" *ngIf="visibleChem">Chemistry</ion-select-option>
+        <ion-select-option value="physics" *ngIf="visiblePhysics">Physics</ion-select-option>
+        <ion-select-option value="pure" *ngIf="visiblePure"> Pure Mathematics</ion-select-option>
+        <ion-select-option value="applied" *ngIf="visibleApplied">Applied Mathematics</ion-select-option>
+        <ion-select-option value="bio" *ngIf="visibleBio">Biology</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <app-submit-assignmnet [assigmentSubmission]=subject></app-submit-assignmnet>
+
+</ion-content>

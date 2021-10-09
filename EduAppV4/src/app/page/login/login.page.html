@@ -1,0 +1,24 @@
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <img src="http://localhost/_capacitor_file_/storage/emulated/0/HD Wallpapers/hd_25862b7c557fbac15ee088f543f561f8.jpg"> -->
+      <img style="height:30%;" src="./../../../assets/Images/QuickSubmit.png">
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input [(ngModel)]="user.email" placeholder="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="user.password" placeholder="password" type="password"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="Login()">Login</ion-button>
+      <ion-button expand="block" color="secondary" (click)="RegisterUser()">Register</ion-button>
+      <ion-button expand="block" color="light" (click)="RestPassword()">Forgot Password</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar style="align-items: center;" color="secondary">
+        <div style="padding-left: 40%; padding-bottom: 5%; padding-top: 5%;">
+          <ion-avatar>
+            <img src="{{imgUrl}}" height="100" width="100" />
+          </ion-avatar>
+        </div>
+      </ion-toolbar>
+      <ion-toolbar color="primary">
+        <div>
+          <ion-label style="padding-left: 10%; padding-bottom: 5%;">{{name}}</ion-label>
+        </div>
+        <div>
+          <ion-label style="padding-left: 10%;">Studen ID: {{studentId}} </ion-label>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle hidden>
+          <ion-item routerLink="/edit-user">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>Update Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle hidden>
+          <ion-item routerLink="/fileupview">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>File upload</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle hidden>
+          <ion-item routerLink="/assignmentview">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>View Assignments</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_home.png"></ion-img>
+            <ion-label style="font-weight: bold;">Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/notifications">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_notification.png"></ion-img>
+
+            <ion-label style="font-weight: bold;">Notification</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/subjects">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_subjects.png"></ion-img>
+            <ion-label style="font-weight: bold;">Subjects</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/quick-submit">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_upload.png"></ion-img>
+            <ion-label style="font-weight: bold;">Quick Submit</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/update-user">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_profile.png"></ion-img>
+            <ion-label style="font-weight: bold;">My Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/support">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_support.png"></ion-img>
+            <ion-label style="font-weight: bold;">Support</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/login">
+            <ion-img class="imgIcons" slot="start" src="../assets/Images/menu_logout.png"></ion-img>
+            <ion-label style="font-weight: bold;">Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="page-titles">Register User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <div>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input id="name" name="name" (ionInput)="CheckInputVal('fnameValidator')" [(ngModel)]="student.firstName" required minlength="1">
+      </ion-input>
+    </div>
+    <div>
+      <ion-label class="my-label" *ngIf="fnameValidator">Please enter First Name</ion-label>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input [(ngModel)]="student.lastName" (ionInput)="CheckInputVal('lnameValidator')"></ion-input>
+    </div>
+    <div>
+      <ion-label class="my-label" *ngIf="lnameValidator">Please enter Last Name</ion-label>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="student.email" (ionInput)="CheckInputVal('emailValidator')"></ion-input>
+    </div>
+    <div>
+      <ion-label class="my-label" *ngIf="emailValidator">Please enter email</ion-label>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="student.password"  type="password" (ionInput)="CheckInputVal('passwordValidator')"></ion-input>
+    </div>
+    <div>
+      <ion-label class="my-label" *ngIf="passwordValidator">Please enter Password</ion-label>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div>
+      <ion-label position="floating">Student ID</ion-label>
+      <ion-input [(ngModel)]="student.studentId" (ionInput)="CheckInputVal('stuIdValidator')"></ion-input>
+    </div>
+    <div>
+      <ion-label class="my-label" *ngIf="stuIdValidator">Please enter Student ID</ion-label>
+    </div>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-end">
+        <ion-row>
+          <ion-button class="btn-cam" color="secondary" size="small" style="width: 150px" (change)="showPreview($event)" (click)="OpenCamera()">Open
+            Camera</ion-button>
+        </ion-row>
+        <ion-row>
+          <ion-button class="btn-cam" color="secondary" size="small" style="width: 150px" (change)="showPreview($event)" (click)="OpenGallery()">Open
+            Gallerry</ion-button>
+        </ion-row>
+      </ion-col>
+      <ion-col class="ion-align-self-end"> <img src="{{imgUrl}}"  height="100" width="100" /></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="block" (click)="RegisterUser()">Register</ion-button>
+</ion-content>
